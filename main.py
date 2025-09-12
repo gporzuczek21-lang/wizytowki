@@ -16,7 +16,7 @@ class BaseContact:
     def __str__(self):
         return f"Wizytówka: {self.name} {self.last_name} {self.email}\n"
     
-    def __contact__(self):
+    def contact(self):
         return f"Wybieram numer {self.number} i dzwonie do {self.name} {self.last_name}\n"  
 
     def __repr__ (self):
@@ -29,41 +29,32 @@ class BusinessContact(BaseContact):
         self.company = company
         self.work_phone = work_phone 
 
-    def __contact__(self):
+    def contact(self):
         return f"Wybieram numer +48 {self.work_phone} i dzwonie do {self.name} {self.last_name}\n" 
     
 def create_contacts(typee, how_many):
     for i in range(0, how_many):
         if typee == '1':
             i = BaseContact(name=fake.first_name(), last_name=fake.last_name(), number=fake.phone_number(), email=fake.email())
-            base.append(i)                 
+            card.append(i)                 
         elif typee == '2':
             i = BusinessContact(name=fake.first_name(), last_name=fake.last_name(), number=fake.phone_number(), email=fake.email(),job=fake.job(), company=fake.company(),work_phone=fake.phone_number())        
-            buis.append(i)
+            card.append(i)
         else:
             print("Nieprawidłowy wybór") 
-    return base and buis        
+    return card      
 if __name__=="__main__":
     typee = input("podaj rodzaj wizytwki posługujac sie odpowiednia cyfrom 1.BaseContact 2.BusinessContact:" )
     how_many = int(input("Podaj ilość wizytowek: "))
-    
-    base = []
-    buis = []
-
     create_contacts(typee, how_many)
-    
-    if typee == "1":
-       print(base)  
-       for a in base: 
-            print(a)
-            print(a.__contact__())
-            print(a.label_length)
-    elif typee =="2":
-        print(buis)
-        for b in buis:
-            print(b)
-            print(b.__contact__())
-            print(b.label_length)
+    card = []
+    print(card)
+    for a in card: 
+        print(a)
+        print(a.contact())
+        print(a.label_length)
+
+       
         
                  
       

@@ -43,7 +43,8 @@ def create_contacts(typee, how_many):
             card.append(i)
         else:
             print("Nieprawidłowy wybór") 
-    return card      
+    return card  
+
 if __name__=="__main__":
     typee = input("podaj rodzaj wizytwki posługujac sie odpowiednia cyfrom 1.BaseContact 2.BusinessContact:" )
     how_many = int(input("Podaj ilość wizytowek: "))
@@ -52,10 +53,4 @@ if __name__=="__main__":
     for a in cards: 
         print(a)
         print(a.contact())
-        print(a.label_length)
-
-       
-        
-                 
-      
-    
+        print(a.label_length)   

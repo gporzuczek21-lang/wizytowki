@@ -33,6 +33,7 @@ class BusinessContact(BaseContact):
         return f"Wybieram numer +48 {self.work_phone} i dzwonie do {self.name} {self.last_name}\n" 
     
 def create_contacts(typee, how_many):
+    card = []
     for i in range(0, how_many):
         if typee == '1':
             i = BaseContact(name=fake.first_name(), last_name=fake.last_name(), number=fake.phone_number(), email=fake.email())
@@ -46,10 +47,9 @@ def create_contacts(typee, how_many):
 if __name__=="__main__":
     typee = input("podaj rodzaj wizytwki posługujac sie odpowiednia cyfrom 1.BaseContact 2.BusinessContact:" )
     how_many = int(input("Podaj ilość wizytowek: "))
-    create_contacts(typee, how_many)
-    card = []
-    print(card)
-    for a in card: 
+    cards = create_contacts(typee, how_many,)
+    print(cards)
+    for a in cards: 
         print(a)
         print(a.contact())
         print(a.label_length)
